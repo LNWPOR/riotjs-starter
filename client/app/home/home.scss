@@ -1,7 +1,15 @@
 $colorHome:red;
 
 home{
+	.test{
+		width: 100px;
+		height: 100px;
+		// background-image: url(../img/newicon2.jpg);
+	
+	}
+	
 	h1{
 		color:$colorHome;
 	}
+	
 }

@@ -4,7 +4,7 @@
 	<img src="img/newicon2.jpg" alt="">
 	
 	<home></home>
-	
+
 
 	<script>
 		var actions = require('../actions.js');
@@ -18,7 +18,6 @@
 			this.state = store.getState()
 			this.update()
 		}.bind(this))
-
 
 	</script>
 </app>

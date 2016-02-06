@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-var debug = require('debug')('passport-mongo'),
-    app = require('./app'),
-    http = require('http').Server(app),
-    io = require('socket.io')(http);
+var debug 		= require('debug')('passport-mongo'),
+    app 		= require('./server/app'),
+    http 		= require('http').Server(app),
+    io 			= require('socket.io')(http),
+    express 	= require('express');
 
 app.use(express.static(__dirname + '/build'));
 

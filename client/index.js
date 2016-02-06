@@ -1,13 +1,19 @@
-var riot 	= require('riot'),
-	redux 	= require('redux'),
-	thunk 	= require('redux-thunk')
+var riot 	= 	require('riot'),
+	redux 	= 	require('redux'),
+	thunk 	= 	require('redux-thunk'),
+	$		=	require('jquery');
 
-// style
+//style
 require('./scss/main.scss');
 
-// script
+//script
 require('./app/app.tag');
 require('./app/home/home.tag');
+
+//img 
+require('./img/newicon2.jpg');
+
+
 
 var reducer = function(state={title:[]},action){
 	console.log(action);
@@ -22,7 +28,6 @@ var reducer = function(state={title:[]},action){
 	
 }
 
-// var reduxStore = redux.createStore(reducer)
 
 var createStoreWithMiddleware = redux.compose(
 	redux.applyMiddleware(thunk)
@@ -33,3 +38,5 @@ var reduxStore = createStoreWithMiddleware(reducer);
 document.addEventListener('DOMContentLoaded', () => {
 	riot.mount('app',{store:reduxStore});
 })
+
+

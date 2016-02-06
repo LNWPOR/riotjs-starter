@@ -1,16 +1,15 @@
-var	path	=	require('path'),
-	bourbon = 	require('node-bourbon').includePaths,
-	neat 	= 	require('node-neat').includePaths,
-	webpack = 	require('webpack');
+var	path				=	require('path'),
+	bourbon 			= 	require('node-bourbon').includePaths
+	neat 				= 	require('node-neat').includePaths,
+	webpack 			= 	require('webpack'),
+    HtmlWebpackPlugin 	= 	require('html-webpack-plugin');
 
 module.exports = {
-	entry: [
-			'webpack/hot/dev-server',
-			'./client/index.js'
-			],
+	entry: './client/index.js'
+	,
 	output: {
-		path:__dirname,
-		filename:'bundle.js'
+		path: path.resolve(__dirname, './build'),
+        filename: 'bundle.min.js'
 	},
     devtool: 'source-map',
     resolve: {
@@ -43,21 +42,30 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-                loader: 'file'
+                loader: 'file?name=templates/[name].html'
             },
             {
                 test: /\.(woff|woff2|ttf|eot)$/,
-                loader: 'file'
+                loader: 'file?name=assets/[name].[ext]'
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
-                loader: 'file'
+                loader: 'file?name=img/[name].[ext]!img?minimize&optimizationLevel=5&progressive=true'
             }
 		]
 	},
-	plugins: [
+    plugins: [
+        new HtmlWebpackPlugin({ 
+            template: 'client/index.html',
+            inject: 'body'
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
         new webpack.DefinePlugin({
-    		'process.env.NODE_ENV': '"development"'
+    		'process.env.NODE_ENV': '"production"'
 		})
     ]
 }

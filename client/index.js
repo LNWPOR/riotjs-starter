@@ -1,6 +1,6 @@
 var riot 	= require('riot'),
 	redux 	= require('redux'),
-	thunk = require('redux-thunk')
+	thunk 	= require('redux-thunk')
 
 // style
 require('./scss/main.scss');

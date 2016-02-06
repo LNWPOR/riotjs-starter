@@ -1,5 +1,6 @@
 var	path	=	require('path'),
-	bourbon = 	require('node-bourbon').includePaths;
+	bourbon = 	require('node-bourbon').includePaths
+	neat = 		require('node-neat').includePaths;
 
 module.exports = {
 	entry: [
@@ -36,7 +37,8 @@ module.exports = {
                 loader: 'ts-loader'
             },
             {
-                test: /\.scss$/, loader: "style!css!autoprefixer-loader?browsers=last 3 versions!sass?includePaths[]=" + bourbon
+                test: /\.scss$/, loader: "style!css!autoprefixer-loader?browsers=last 3 versions!sass?includePaths[]=" + bourbon + 
+                '&includePaths[]=' + neat[0] + '&includePaths[]=' + neat[1]
             }
 		]
 	}

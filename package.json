@@ -1,5 +1,5 @@
 {
-  "name": "riot-tut-4",
+  "name": "riot-starter",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -32,7 +32,8 @@
     "typescript": "^1.7.5",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.13",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "typescript": "^1.7.5",
   },
   "dependencies": {
     "redux": "^3.2.1",
